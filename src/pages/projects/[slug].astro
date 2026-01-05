@@ -3,6 +3,8 @@ import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { getEntry } from "astro:content";
 
+export const prerender = true;
+
 export async function getStaticPaths() {
     const projects = await getCollection("projects");
     return projects.map((project) => ({
@@ -24,6 +26,15 @@ if (!entry) {
 
 const { Content } = await render(entry);
 ---
+
+<script>
+    import { animate, type AnimationSequence } from "motion";
+    import { loaderAnimation } from "../../lib/constants";
+
+    const sequence = [loaderAnimation];
+
+    animate(sequence as AnimationSequence);
+</script>
 
 <Layout
     description={entry.data.description}
