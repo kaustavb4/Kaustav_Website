@@ -35,6 +35,7 @@ const { Content } = await render(entry);
         <a
             class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 mb-8 border-1 border-solid border-neutral-600 rounded-lg transition-colors duration-300"
             href="/projects"
+            aria-label="Back"
         >
             Back
         </a>
@@ -42,7 +43,7 @@ const { Content } = await render(entry);
         <div class="w-full flex flex-col gap-6">
             {
                 entry.data.image && (
-                    <div class="w-full h-[300px] md:h-[400px] rounded-2xl overflow-hidden bg-neutral-800 border border-neutral-700">
+                    <div class="w-full h-[220px] md:h-[320px] rounded-2xl overflow-hidden bg-neutral-800 border border-neutral-700">
                         <img
                             src={entry.data.image}
                             alt={entry.data.title}
@@ -67,6 +68,7 @@ const { Content } = await render(entry);
                         <a
                             href={entry.data.demoUrl}
                             target="_blank"
+                            rel="noreferrer noopener"
                             class="inline-block bg-white text-black font-bold py-2 px-6 rounded-full hover:bg-neutral-200 transition-colors mb-8"
                         >
                             Demo

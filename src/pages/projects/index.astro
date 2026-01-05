@@ -38,8 +38,11 @@ const projects = (await getCollection("projects"))?.sort(
     >
         <a
             class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 mb-8 border-1 border-solid border-neutral-600 rounded-lg transition-colors duration-300"
-            href="/">Back</a
+            href="/"
+            aria-label="Back"
         >
+            Back
+        </a>
         <h1 class="text-4xl font-bold mb-4 text-neutral-100">Projects</h1>
         <p class="text-neutral-400 mb-8">Selected work</p>
 
