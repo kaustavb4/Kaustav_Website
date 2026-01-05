@@ -1,0 +1,85 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+const projects = (await getCollection("projects"))?.sort(
+    (projectA, projectB) =>
+        (projectB.data.date || new Date()).getTime() -
+        (projectA.data.date || new Date()).getTime(),
+);
+---
+
+<script>
+    import { animate, stagger, type AnimationSequence } from "motion";
+    import { loaderAnimation } from "../../lib/constants";
+
+    const sequence = [
+        loaderAnimation,
+        [
+            ".project-card",
+            { y: ["40%", "0%"], opacity: [0, 1] },
+            {
+                type: "spring",
+                duration: 0.5,
+                delay: stagger(0.1),
+            },
+        ],
+    ];
+
+    animate(sequence as AnimationSequence);
+</script>
+
+<Layout
+    description="Selected work and projects by Kaustav Bhattacharya"
+    title="Projects | Kaustav Bhattacharya"
+>
+    <main
+        class="w-screen h-screen flex flex-col justify-start items-start max-w-5xl mx-auto p-4 md:p-8"
+    >
+        <a
+            class="text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 mb-8 border-1 border-solid border-neutral-600 rounded-lg transition-colors duration-300"
+            href="/">Back</a
+        >
+        <h1 class="text-4xl font-bold mb-4 text-neutral-100">Projects</h1>
+        <p class="text-neutral-400 mb-8">Selected work</p>
+
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full pb-20"
+        >
+            {
+                projects?.map((project) => (
+                    <a
+                        class="project-card text-neutral-100 no-underline"
+                        href={`/projects/${project.id}`}
+                    >
+                        <div class="border border-neutral-800 bg-neutral-900 rounded-xl overflow-hidden hover:border-neutral-600 hover:bg-neutral-800 transition-all duration-300 h-full flex flex-col group">
+                            <div class="h-48 w-full bg-neutral-800 overflow-hidden relative">
+                                {project.data.image ? (
+                                    <img
+                                        src={project.data.image}
+                                        alt={project.data.title}
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                ) : (
+                                    <div class="w-full h-full flex items-center justify-center bg-gradient-to-tr from-neutral-800 to-neutral-700 text-neutral-500">
+                                        <span class="text-4xl opacity-20">
+                                            🚀
+                                        </span>
+                                    </div>
+                                )}
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h2 class="text-xl font-bold mb-2 text-neutral-100">
+                                    {project.data.title}
+                                </h2>
+                                <p class="text-sm text-neutral-400 line-clamp-2">
+                                    {project.data.description}
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                ))
+            }
+        </div>
+    </main>
+</Layout>

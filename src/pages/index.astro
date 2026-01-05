@@ -63,34 +63,29 @@ const posts = (await getCollection("blog"))?.sort(
     </Card>
     <Card
       colSpan="md:col-span-1"
-      href="/blog"
-      rowSpan="md:row-span-2 flex gap-1"
-      title="Blog"
+      href="/projects"
+      rowSpan="md:row-span-1"
+      title="Projects"
     >
-      <div class="flex flex-col gap-1">
-        {
-          posts?.slice(0, 3).map((post) => (
-            // <a
-            //   class="text-sm md:text-base decoration-none flex justify-between"
-            //   href={`/blog/${post.id}`}
-            // >
-            <div class="list-none w-full text-neutral-100 hover:text-neutral-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1 my-0">
-              <p class="inline-block whitespace-nowrap text-xs">
-                {post.data.title}
-              </p>
-              {post.data.pubDate && (
-                <time
-                  class="text-right tabular-nums text-xs"
-                  data-date={post.data.pubDate.toISOString()}
-                  datetime={post.data.pubDate.toISOString()}
-                >
-                  {formatDate(post.data.pubDate)}
-                </time>
-              )}
-            </div>
-            // </a>
-          ))
-        }
+      <div class="flex flex-col gap-2 h-full">
+        <p class="text-xs text-gray-500">Selected work</p>
+        <div class="flex-grow flex items-center justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-12 h-12 text-neutral-500 group-hover:text-white transition-colors duration-300"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+        </div>
       </div>
     </Card>
     <Card colSpan="md:col-span-1" rowSpan="md:row-span-1">
