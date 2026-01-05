@@ -3,6 +3,7 @@ title: "Mechanism Prototype"
 description: "Design and fabrication of a 3-axis gimbal mechanism for camera stabilization."
 date: 2024-10-20
 demoUrl: "https://example.com"
+image: "/RocketShipo.jpg"
 ---
 
 # Mechanism Prototype

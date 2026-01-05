@@ -3,6 +3,7 @@ title: "Airframe Design Study"
 description: "Aerodynamic analysis and structural optimization for a high-performance UAV airframe."
 date: 2024-11-15
 demoUrl: "https://example.com"
+image: "/RocketShipo.jpg"
 ---
 
 # Airframe Design Study
