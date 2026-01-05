@@ -20,23 +20,24 @@ const schema =
     ? {
         "@context": "http://schema.org",
         "@type": "Person",
-        name: "Gianmarco",
+        name: "Kaustav Bhattacharya",
         url: Astro.url.origin,
         sameAs: [LINKS.linkedin, LINKS.github],
         image: `${Astro.url.origin}/og-image.png`,
-        jobTitle: "Freelance Frontend Developer",
+        jobTitle: "Aerospace Engineering Student",
         worksFor: {
           "@type": "Organization",
-          name: "Self-Employed",
+          name: "University of Wisconsin–Madison",
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Italy",
-            addressCountry: "IT",
+            addressLocality: "Madison",
+            addressRegion: "WI",
+            addressCountry: "US",
           },
         },
         nationality: {
           "@type": "Country",
-          name: "Italy",
+          name: "USA",
         },
       }
     : {

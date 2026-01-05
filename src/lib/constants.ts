@@ -1,10 +1,6 @@
 export const LINKS = {
-  github: "https://github.com/Ladvace",
-  linkedin: "https://www.linkedin.com/in/gianmarco-cavallo/",
-  medium: "https://ladvace.medium.com/",
-  discord: "https://discordapp.com/users/163300027618295808",
-  dribble: "https://dribbble.com/Ladvace_Jace",
-  email: "contact@gianmarcocavallo.com<",
+  github: "https://github.com/Ladvace", // Keeping existing as requested, assuming it's the correct one or placeholder
+  linkedin: "https://www.linkedin.com/in/kaustav-bhattacharya-92559632a/",
 };
 
 export const loaderAnimation = [
